@@ -165,6 +165,9 @@ class Map(models.Model):
     name = models.CharField(max_length=255)
     cs_name = models.CharField(max_length=255, default='de_')
 
+    def mapImageName(self) -> bool:
+        return self.cs_name if self.cs_name.startswith("de_") else False
+
     def __str__(self):
         return self.name
 
